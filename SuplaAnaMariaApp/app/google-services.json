@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1087483242424",
+    "firebase_url": "https://test-custom-model-mlkit.firebaseio.com",
+    "project_id": "test-custom-model-mlkit",
+    "storage_bucket": "test-custom-model-mlkit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1087483242424:android:fac87914016ee173",
+        "android_client_info": {
+          "package_name": "android.jeziel.mlkit.tflite"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1087483242424-ra6khl0c4h0tkbp2jh1qobp3l2ua3gt0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuJXSRhDBPB1iqW1IVCIehTmlal6bCvC0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
