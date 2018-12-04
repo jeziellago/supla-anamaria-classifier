@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import com.google.firebase.ml.custom.*
 import com.google.firebase.ml.custom.model.FirebaseCloudModelSource
 import com.google.firebase.ml.custom.model.FirebaseModelDownloadConditions
+import com.jeziellago.android.imagekit.Image
 import java.lang.Exception
 
 class Classifier {
@@ -30,7 +31,7 @@ class Classifier {
     }
 
     private fun getFirebaseModelInputs(img: Bitmap): FirebaseModelInputs {
-        val imgBuffer = img.convertBitmapToByteBuffer(INPUT_SIZE)
+        val imgBuffer = Image(img).reshapeTo4D()
         return FirebaseModelInputs.Builder()
                 .add(imgBuffer)
                 .build()

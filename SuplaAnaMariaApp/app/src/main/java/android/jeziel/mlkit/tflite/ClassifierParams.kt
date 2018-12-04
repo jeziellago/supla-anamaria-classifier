@@ -3,6 +3,8 @@ package android.jeziel.mlkit.tflite
 
 const val CLOUD_MODEL_NAME = "supla-anamaria"
 const val INPUT_SIZE = 224
+const val MOBILE_NET_WIDTH = 224f
+const val MOBILE_NET_HEIGHT = 224f
 const val IMG_TYPE_RGB = 3
 const val LABELS = 2
 
@@ -15,7 +17,5 @@ val TEST_IMAGES = arrayOf(
         R.drawable.s3,
         R.drawable.ana3,
         R.drawable.ana4,
-        R.drawable.s4,
-        R.drawable.s2,
-        R.drawable.ana1
+        R.drawable.s4
 )
