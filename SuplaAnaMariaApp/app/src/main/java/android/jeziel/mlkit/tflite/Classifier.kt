@@ -1,9 +1,11 @@
 package android.jeziel.mlkit.tflite
 
 import android.graphics.Bitmap
+import com.google.firebase.ml.common.modeldownload.FirebaseCloudModelSource
+import com.google.firebase.ml.common.modeldownload.FirebaseLocalModelSource
+import com.google.firebase.ml.common.modeldownload.FirebaseModelDownloadConditions
+import com.google.firebase.ml.common.modeldownload.FirebaseModelManager
 import com.google.firebase.ml.custom.*
-import com.google.firebase.ml.custom.model.FirebaseCloudModelSource
-import com.google.firebase.ml.custom.model.FirebaseModelDownloadConditions
 import com.jeziellago.android.imagekit.Image
 import java.lang.Exception
 
@@ -38,6 +40,13 @@ class Classifier {
     }
 
     private fun initFirebaseModelInterpreter() {
+
+        // configure local model .tflite
+        val localSource = FirebaseLocalModelSource.Builder(LOCAL_MODEL_NAME)
+                .setAssetFilePath(LOCAL_MODEL_ASSET)
+                .build()
+
+        // define download conditions to cloud model
         val conditionsBuilder = FirebaseModelDownloadConditions.Builder().requireWifi()
         val conditions = conditionsBuilder.build()
         val cloudSource = FirebaseCloudModelSource.Builder(CLOUD_MODEL_NAME)
@@ -46,10 +55,15 @@ class Classifier {
                 .setUpdatesDownloadConditions(conditions)
                 .build()
 
-        FirebaseModelManager.getInstance().registerCloudModelSource(cloudSource)
+        // register local and cloud model
+        with(FirebaseModelManager.getInstance()) {
+            registerLocalModelSource(localSource)
+            registerCloudModelSource(cloudSource)
+        }
 
         val options = FirebaseModelOptions.Builder()
                 .setCloudModelName(CLOUD_MODEL_NAME)
+                .setLocalModelName(LOCAL_MODEL_NAME)
                 .build()
 
         firebaseInterpreter = FirebaseModelInterpreter.getInstance(options)

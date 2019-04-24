@@ -2,6 +2,8 @@ package android.jeziel.mlkit.tflite
 
 
 const val CLOUD_MODEL_NAME = "supla-anamaria"
+const val LOCAL_MODEL_NAME = "supla-anamaria-local"
+const val LOCAL_MODEL_ASSET = "supla_anamaria.tflite"
 const val INPUT_SIZE = 224
 const val MOBILE_NET_WIDTH = 224f
 const val MOBILE_NET_HEIGHT = 224f
